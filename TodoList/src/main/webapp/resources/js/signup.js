@@ -19,10 +19,18 @@ document.getElementById("signupID").addEventListener("change", function(){
 '비밀번호를 입력해주세요' 경고창 출력
 */
 
-document.getElementById("signupPW")
+const Pw = document.getElementById("signupPW");
+const checkPw = document.getElementById("signupCheckPW");
 
+checkPw.addEventListener("keyup", function() {
 
-
+    if(Pw.value.length == 0) {
+        this.value = "";
+        alert("비밀번호를 입력해주세요");
+        Pw.focus();
+        checkObj.Pw = false;
+    }
+});
 
 
 

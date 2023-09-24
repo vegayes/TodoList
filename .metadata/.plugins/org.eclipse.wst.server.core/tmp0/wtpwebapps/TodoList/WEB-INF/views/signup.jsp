@@ -20,7 +20,7 @@
 				<input type="password" name="signupPw" placeholder="PW" autocomplete='off' id = "signupPW">
 
 				<p>비밀번호 확인</p>
-				<input type="password" name="signupPw2" placeholder="checkPW" autocomplete='off'>
+				<input type="password" name="signupPw" placeholder="checkPW" autocomplete='off' id = "signupCheckPW">
 				<span class = "validation"></span>
 
 				<p>닉네임</p>
