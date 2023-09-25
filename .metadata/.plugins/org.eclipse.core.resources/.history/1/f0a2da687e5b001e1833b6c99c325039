@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>수정</title>
+	</head>
+	<body>
+		<main>
+			<h1>To do 수정하기</h1>
+			<form action = "/update" method="post">
+				<p>제목</p>
+				<input type="text" name="updateTitle" placeholder="제목" autocomplete='off' id = "updateTitle">
+
+				 <p>메모</p>
+				 <textarea name="updateMemo" placeholder="메모" autocomplete='off' id = "updateMemo"></textarea>
+				<!--  
+					<input type="text" name="updateMemo" placeholder="메모" autocomplete='off' id = "updateMemo">
+				-->
+				<button>수정하기</button>
+			</form>
+		</main>
+	</body>
+</html>

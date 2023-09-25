@@ -1,0 +1,29 @@
+package edu.kh.member.model.service;
+
+import edu.kh.member.model.dao.MemberDAO;
+import edu.kh.member.model.dto.Member;
+import static edu.kh.todo.common.JDBCTemplete.*;
+
+import java.sql.Connection;
+
+public class MemberService {
+
+	MemberDAO dao = new MemberDAO();
+	
+	public int  signupMember(String signupId, String signupPw, String signupNick) {
+
+		Connection conn =  getConnection();
+		
+		int newMember = dao.signupMember(conn, signupId, signupPw, signupNick);
+		
+		if(newMember > 0) commit(conn);
+		
+		
+		
+		
+		
+		return newMember;
+	}
+	
+	
+}

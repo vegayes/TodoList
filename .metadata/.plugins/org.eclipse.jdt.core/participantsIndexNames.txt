@@ -1,5 +1,5 @@
 INDEX VERSION 1.134
-C:\Users\uusst\OneDrive\πŸ≈¡ »≠∏È\TodoList\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2774581863.index
+C:\Users\user1\Desktop\TodoList\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2811616627.index
 \TodoList\src\main\java
-C:\Users\uusst\OneDrive\πŸ≈¡ »≠∏È\TodoList\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2811616627.index
+C:\Users\user1\Desktop\TodoList\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2774581863.index
 \TodoList\src\main\java

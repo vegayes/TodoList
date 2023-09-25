@@ -1,0 +1,63 @@
+package edu.kh.member.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import edu.kh.member.model.dto.Member;
+import edu.kh.member.model.service.MemberService;
+
+@WebServlet("/login")
+public class LoginController extends HttpServlet {
+
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		try {
+
+			req.setCharacterEncoding("UTF-8");
+			
+			String loginId = req.getParameter("loginId");
+			String loginPw = req.getParameter("loginPw");
+			
+			MemberService service = new MemberService();
+			
+			Member loginMember = service.login(loginId,loginPw);
+			
+			System.out.println(loginMember);
+			
+			if(loginMember != null) {
+				System.out.println("로그인 성공");
+			}else {
+				System.out.println("로그인 실패");
+			}
+			
+			HttpSession session = req.getSession();
+			
+			if(loginMember != null) {
+				
+				session.setAttribute("loginMember", loginMember);
+				session.setMaxInactiveInterval(60*60);
+				resp.sendRedirect("/");
+			}else {
+				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+				
+				String referer = req.getHeader("referer");
+				
+				System.out.println(referer);
+				resp.sendRedirect(referer);
+			}
+		
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+}

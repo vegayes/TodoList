@@ -1,0 +1,19 @@
+package edu.kh.member.model.service;
+
+import edu.kh.member.model.dto.Member;
+import static edu.kh.todo.common.JDBCTemplete.*;
+
+public class MemberService {
+
+	public Member signupMember(String signupId, String signupPw, String signupNick) {
+
+		JDBCTemplete.getConnection();
+		
+		
+		
+		
+		return member;
+	}
+	
+	
+}
