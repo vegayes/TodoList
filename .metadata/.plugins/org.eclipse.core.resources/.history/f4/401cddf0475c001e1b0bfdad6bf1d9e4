@@ -116,15 +116,14 @@ signupBtn.addEventListener("click", function(){
  })
 
 */
-
-
 const signupBtn = document.getElementById("signupBtn");
 const container = document.getElementById("signupEx");
 signupBtn.addEventListener("mouseover", function(){
+	
     if(sucId == 1 && sucPw == 1 && sucNick == 1){
-       signupBtn.disabled = true;
+       signupBtn.disabled = false;
  	}else{
-	   signupBtn.disabled = false;
+	   signupBtn.disabled = true;
 	}
 });
 

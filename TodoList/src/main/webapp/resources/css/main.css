@@ -208,7 +208,13 @@ textarea{
 }
 
 
+td{
+   padding: 10px;
+}
 
+td > span{
+	margin-left: 5px;
+}
 
 /*수정하기*/
 

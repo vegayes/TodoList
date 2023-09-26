@@ -37,7 +37,7 @@
 								<td> ${todolist.todoTitle} </td>
 								<td> ${todolist.todoMemo} </td>
 								<td> ${todolist.todoDate} </td>
-								<td> ${todolist.todoNo}</td>
+								<!-- <td> ${todolist.todoNo}</td> -->
 								<td class = "oneListBtn">
 									<span>
 										<a href = "/update?todoNo=${todolist.todoNo}"id = "update"  >수정</a>

@@ -116,8 +116,6 @@ signupBtn.addEventListener("click", function(){
  })
 
 */
-
-
 const signupBtn = document.getElementById("signupBtn");
 const container = document.getElementById("signupEx");
 signupBtn.addEventListener("mouseover", function(){
