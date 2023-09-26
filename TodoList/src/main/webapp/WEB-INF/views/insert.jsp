@@ -12,18 +12,17 @@
 	<body>
 		<main>
 			<h1>To do 등록하기</h1>
-			<form action = "/insert" method="post" id= "insert">
+			<form action = "/insert" method="post" class= "container">
 				<p>제목</p>
-				<input type="text" name="insertTitle" placeholder="제목" autocomplete='off' id = "insertTitle">
+				<input type="text" name="insertTitle" placeholder="제목" autocomplete='off' class = "title">
 
 				 <p>메모</p>
-				 <textarea name="insertMemo" placeholder="메모" autocomplete='off' id = "insertMemo"></textarea>
+				 <textarea name="insertMemo" placeholder="메모" autocomplete='off' class = "memo"></textarea>
 				<!--  
 					<input type="text" name="insertMemo" placeholder="메모" autocomplete='off' id = "insertMemo">
 				-->
 				
-					${sessionScope.loginMember.memberNo} 
-				<button>등록하기</button>
+				<button class = "btn" id = "insert">등록하기</button>
 			</form>
 		</main>
 	</body>

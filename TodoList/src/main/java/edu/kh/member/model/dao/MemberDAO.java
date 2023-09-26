@@ -28,21 +28,25 @@ public class MemberDAO {
 			
 			prop.loadFromXML(new FileInputStream(filePath));
 			
-			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
+	
 
-	// 1) 멤버 회원가입
+	/** 1) 멤버 회원가입
+	 * @param conn
+	 * @param signupId
+	 * @param signupPw
+	 * @param signupNick
+	 * @return
+	 * @throws Exception
+	 */
 	public int signupMember(Connection conn, String signupId, String signupPw, String signupNick) throws Exception{
-		
-		System.out.println("회원가입진행 DAO");
 		
 		int newMember = 0;
 		
 		try {
-			
 			String sql = prop.getProperty("signup");
 			
 			pstmt = conn.prepareStatement(sql);
@@ -59,7 +63,14 @@ public class MemberDAO {
 		return newMember;
 	}
 
-	// 2) 멤버 로그인
+
+	/** 2) 멤버 로그인
+	 * @param conn
+	 * @param loginId
+	 * @param loginPw
+	 * @return
+	 * @throws Exception
+	 */
 	public Member loginMember(Connection conn, String loginId, String loginPw) throws Exception{
 
 		Member loginMember = null;
@@ -74,8 +85,7 @@ public class MemberDAO {
 			pstmt.setString(2, loginPw);
 			
 			rs = pstmt.executeQuery();
-			
-			System.out.println("login rs :"+rs);
+
 			
 			if(rs.next()) {
 				

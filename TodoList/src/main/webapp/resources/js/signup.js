@@ -99,19 +99,29 @@ nickName.addEventListener("change", function(){
 
 });
 
+
+
+
 // 4) 모든 유효성 검사를 통과했을 때, 회원가입 
-// const signupBtn = document.getElementById("signupBtn");
-// var sucAll = 0;
-// signupBtn.addEventListener("click", function(){
+/*
+const signupBtn = document.getElementById("signupBtn");
+signupBtn.addEventListener("click", function(){
 
-//     if( sucId == 1 && sucPw == 1 && sucNick == 1){
-//          sucAll = 1;
-//         alert("회원가입에 성공하셨습니다.")
+    if( sucId == 1 && sucPw == 1 && sucNick == 1){
+          sucAll = 1;
        
-//     }else{
-//         sucAll = 0;
-//         alert("회원가입에 실패하셨습니다.")
-//     }
-// })
+     }else{
+         sucAll = 0;
+     }
+ })
 
+*/
+
+function btnActive(){
+    if(sucId == 1 && sucPw == 1 && sucNick == 1){
+       signupBtn.disabled = false;
+ 	}else{
+	   signupBtn.disabled = true;
+	}
+}
 

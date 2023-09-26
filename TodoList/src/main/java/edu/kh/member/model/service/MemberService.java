@@ -9,9 +9,10 @@ import java.sql.Connection;
 public class MemberService {
 
 	MemberDAO dao = new MemberDAO();
-	Connection conn =  getConnection();
+
 	
 	public int  signupMember(String signupId, String signupPw, String signupNick) throws Exception{
+		Connection conn =  getConnection();
 		
 		System.out.println("회원가입진행 Service");
 		
@@ -21,21 +22,17 @@ public class MemberService {
 		else 			  rollback(conn);
 		
 		close(conn);
-		
 		return newMember;
 	}
 
 	public Member login(String loginId, String loginPw) throws Exception{
-
+		Connection conn =  getConnection();
 		
 		System.out.println("로그인 진행 Service");
 		
 		Member loginMember = dao.loginMember(conn, loginId, loginPw);
 		
-		System.out.println("login service : "+loginMember);
-		
 		close(conn);
-		
 		return loginMember;
 	}
 	

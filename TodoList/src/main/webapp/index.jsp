@@ -30,34 +30,45 @@
 				
 				<c:otherwise>
 					<h1>${sessionScope.loginMember.memberNickName}의 투두 리스트 </h1>
-					<c:forEach var = "todolist" items = "${sessionScope.todoList}">
-						<table>
+					<table>
+						<c:forEach var = "todolist" items = "${sessionScope.todoList}" varStatus="status">
+							
 							<tr>
-							<!-- 왜 정렬이 안되는거지?????????????????????????????????????? -->
-								<td>${todolist.todoTitle}</td>
-								<td>${todolist.todoMemo}</td>
-								<td>${todolist.todoDate}</td>
+								<td> ${todolist.todoTitle} </td>
+								<td> ${todolist.todoMemo} </td>
+								<td> ${todolist.todoDate} </td>
+								<td> ${todolist.todoNo}</td>
 								<td class = "oneListBtn">
 									<span>
-										<a href = "/update" id = "update">수정</a>
+										<a href = "/update?todoNo=${todolist.todoNo}"id = "update"  >수정</a>
 									</span>
-	
+
 									<span>
-										<a href = "/delete" id = "delete">삭제</a>
+										<a href = "/delete?todoNo=${todolist.todoNo}" id = "delete">삭제</a>
 									</span>
 								</td>
 							</tr>
-						</table>
-					</c:forEach>
-					
+						</c:forEach>
+					</table>
 					<div class = "todoUserBtn">
 						<a href = "/insert" id = "insert">등록하기</a>
 						<a href = "/logout" id = "logout">로그아웃</a>
 					</div>
-					
 				</c:otherwise>
 				
 			</c:choose>
 		</main>
+		
+		
+		<%-- alert 창 --%>
+		<c:if test="${not empty sessionScope.message }">
+			<script>
+				<%--EL/JSTL 구문이 먼저 해석됨 --%>
+				<%--문자열의 경우 따옴표가 없는 상태이니 옆에 붙여줘야 함. --%>
+				alert('${message}');
+			</script>		 
+			 <c:remove var = "message" scope="session"/>
+		</c:if>
+
 	</body>
 </html>

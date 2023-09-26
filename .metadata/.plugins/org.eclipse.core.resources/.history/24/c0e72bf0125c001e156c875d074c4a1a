@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>등록하기</title>
+		<link rel="stylesheet" href ="/resources/css/main.css">
+	</head>
+	<body>
+		<main>
+			<h1>To do 등록하기</h1>
+			<form action = "/insert" method="post" id= "insertContainer">
+				<p>제목</p>
+				<input type="text" name="insertTitle" placeholder="제목" autocomplete='off' id = "insertTitle">
+
+				 <p>메모</p>
+				 <textarea name="insertMemo" placeholder="메모" autocomplete='off' id = "insertMemo"></textarea>
+				<!--  
+					<input type="text" name="insertMemo" placeholder="메모" autocomplete='off' id = "insertMemo">
+				-->
+				<button>등록하기</button>
+			</form>
+		</main>
+	</body>
+</html>

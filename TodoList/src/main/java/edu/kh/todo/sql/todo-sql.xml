@@ -13,19 +13,39 @@
 -->
 
 	<entry key = "selectAll">
-		SELECT TODO_TITLE, TODO_MEMO,  TO_CHAR(TODO_DATE, 'YYYY-MM-DD HH24:MI:SS') AS TODO_DATE, MEMBER_NO 
+		SELECT TODO_TITLE, TODO_MEMO,  TO_CHAR(TODO_DATE, 'YYYY-MM-DD HH24:MI:SS') AS TODO_DATE, MEMBER_NO, TODO_NO, TODO_DEL_FL 
 		FROM TODO 
 		WHERE TODO_DEL_FL ='N'
 		AND MEMBER_NO = ?
+	</entry>
+
+	<entry key = "select">
+		SELECT TODO_TITLE, TODO_MEMO,  TO_CHAR(TODO_DATE, 'YYYY-MM-DD HH24:MI:SS') AS TODO_DATE, MEMBER_NO, TODO_NO, TODO_DEL_FL 
+		FROM TODO 
+		WHERE TODO_DEL_FL ='N'
+		AND TODO_NO = ?
 	</entry>
 
 
 	<entry key = "insert">
 	INSERT INTO "TODO"
 	VALUES(SEQ_TODO_NO.NEXTVAL, ? , ?
-	, DEFAULT, DEFAULT, 1)
+	, DEFAULT, DEFAULT, ?)
 	</entry>
 
+ 	<entry key = "update">
+	UPDATE TODO 
+	SET TODO_TITLE = ?, TODO_MEMO = ?
+	WHERE TODO_NO = ?
+	</entry>
+
+<!-- 수정된 시간도 적어주면 좋을 듯. -->
+
+	<entry key = "delete">
+	UPDATE TODO 
+	SET TODO_DEL_FL = 'Y'
+	WHERE TODO_NO = ?
+	</entry>
 
 
 </properties>

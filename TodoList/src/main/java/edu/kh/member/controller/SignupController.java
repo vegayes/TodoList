@@ -27,14 +27,12 @@ public class SignupController extends HttpServlet{
 
 		try {
 			req.setCharacterEncoding("UTF-8");
-			
-			// 파라미터
+
 			String signupId = req.getParameter("signupId");
 			String signupPw = req.getParameter("signupPw");
 			String signupCheckPw = req.getParameter("signupCheckPw");
 			String signupNick = req.getParameter("signupNick");
 
-			// 서비스 객체 생성
 			MemberService service = new MemberService();
 //			유효성 검사가 모두 통과되었을 때, 회원가입을 실행할 수 있게 해야하는데,, ?
 
@@ -43,7 +41,6 @@ public class SignupController extends HttpServlet{
 			
 			HttpSession session = req.getSession();
 
-			
 			if(newMember > 0){
 				System.out.println("성공");
 				
@@ -51,7 +48,10 @@ public class SignupController extends HttpServlet{
 				resp.sendRedirect("/");
 				
 			}else {
-				System.out.println("오류");
+				System.out.println("회원가입 오류");
+				
+				session.setAttribute("message", "회원가입에 오류가 발생하였습니다.");
+				resp.sendRedirect("/");
 			}
 
 			

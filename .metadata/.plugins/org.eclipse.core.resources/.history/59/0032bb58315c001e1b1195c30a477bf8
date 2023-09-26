@@ -1,0 +1,58 @@
+package edu.kh.todo.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/update")
+public class UpdateController extends HttpServlet {
+	
+//	1) 수정하기 화면 띄우기
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		try {
+//			1) 선택한 그 내용을 가져오기
+			req.getRequestDispatcher("/WEB-INF/views/update.jsp").forward(req, resp);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+//  2) 수정하기
+	@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			HttpSession session = req.getSession();
+			
+			try {
+				
+				req.setCharacterEncoding("UTF-8");
+				
+				req.getParameter("updateTitle");
+				req.getParameter("updateMemo");
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+}
