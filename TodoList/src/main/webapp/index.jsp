@@ -54,6 +54,9 @@
 						<a href = "/insert" id = "insert">등록하기</a>
 						<a href = "/logout" id = "logout">로그아웃</a>
 					</div>
+					<div class = "withdrawal">
+						<a href = "/withdrawal" id = "withdrawal">회원탈퇴</a>
+					</div>
 				</c:otherwise>
 				
 			</c:choose>

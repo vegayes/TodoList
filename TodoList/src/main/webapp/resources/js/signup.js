@@ -9,6 +9,8 @@ signupId.addEventListener("change", function(){
     if( !regExp.test(this.value)){
         this.style.backgroundColor = "red";
         this.style.color="white";
+        signupId.value = "";
+        signupId.focus();
         sucId = 0;
     }else{
         this.style.backgroundColor = "green";
@@ -63,15 +65,22 @@ checkPw.addEventListener("change", function() {
         console.log(pwMsg);
         pwMsg.classList.add("confirm");
         pwMsg.classList.remove("error");
-        checkObj.pw = true;
-        checkObj.checkPw = true;
+        //checkObj.pw = true;
+        //checkObj.checkPw = true;
         sucPw = 1;
         
     }else {
         pwMsg.innerText="비밀번호 불일치";
         pwMsg.classList.add("error");
         pwMsg.classList.remove("confirm");
-        checkObj.checkPw = false;
+
+
+        pw.value = "";
+        pw.focus();
+        checkPw.value = "";
+       
+        
+        //checkObj.checkPw = false;
         sucPw = 0;
     }
 });
@@ -94,6 +103,10 @@ nickName.addEventListener("change", function(){
         nickMsg.innerText = "한글만 입력하세요"
         nickMsg.classList.add("error");
         nickMsg.classList.remove("confirm");
+
+        nickName.value = "";
+        nickName.focus();
+        
         sucNick = 0;
     }
 
@@ -118,13 +131,42 @@ signupBtn.addEventListener("click", function(){
 */
 
 
-const signupBtn = document.getElementById("signupBtn");
-const container = document.getElementById("signupEx");
-signupBtn.addEventListener("mouseover", function(){
-    if(sucId == 1 && sucPw == 1 && sucNick == 1){
-       signupBtn.disabled = true;
- 	}else{
-	   signupBtn.disabled = false;
-	}
+// const signupBtn = document.getElementById("signupBtn");
+// const container = document.getElementById("signupEx");
+// signupBtn.addEventListener("mouseover", function(){
+//     if(sucId == 1 && sucPw == 1 && sucNick == 1){
+//        signupBtn.disabled = true;
+//  	}else{
+// 	   signupBtn.disabled = false;
+// 	}
+// });
+
+
+
+
+const signupButton = document.getElementById("signupBtn");
+
+signupButton.addEventListener("click", function(event) {
+
+	if(sucId == 0 || sucPw == 0 || sucNick ==0){
+   	 	event.preventDefault();
+   	 	alert(sucId+sucPw+sucNick);
+
+	} 
+
 });
+
+// const $form = document.querySelector('form');
+
+// $form.addEventListener("submit", (event) => {
+//   // 동작(이벤트)을 실행하지 못하게 막는 메서드입니다.
+
+//   if(sucId== 0){
+//     event.preventDefault();
+
+//     alert('전송 막기 성공!');
+
+//   }
+
+// });
 

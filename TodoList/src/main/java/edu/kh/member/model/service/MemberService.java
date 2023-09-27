@@ -11,6 +11,13 @@ public class MemberService {
 	MemberDAO dao = new MemberDAO();
 
 	
+	/** 1) 회원가입
+	 * @param signupId
+	 * @param signupPw
+	 * @param signupNick
+	 * @return
+	 * @throws Exception
+	 */
 	public int  signupMember(String signupId, String signupPw, String signupNick) throws Exception{
 		Connection conn =  getConnection();
 		
@@ -25,6 +32,12 @@ public class MemberService {
 		return newMember;
 	}
 
+	/** 2) 로그인
+	 * @param loginId
+	 * @param loginPw
+	 * @return
+	 * @throws Exception
+	 */
 	public Member login(String loginId, String loginPw) throws Exception{
 		Connection conn =  getConnection();
 		
@@ -34,6 +47,22 @@ public class MemberService {
 		
 		close(conn);
 		return loginMember;
+	}
+
+	/** 3) 탈퇴하기
+	 * @param memNo
+	 * @return
+	 */
+	public int withdrawal(int memNo) throws Exception {
+		Connection conn = getConnection();
+		int withdrawal = dao.withdrawal(conn,memNo);
+		
+		if(withdrawal >0) commit(conn);
+		else 			rollback(conn);
+		
+		close(conn);
+		return withdrawal;
+		
 	}
 	
 	

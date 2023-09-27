@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href ="/resources/css/main.css">
 	</head>
 	<body>
-		<main>
+		<main id = "signupEx">
 			<h1>회원가입</h1>
 			<form action = "/signup" method="post" id= "signup">
 				<p>아이디</p>

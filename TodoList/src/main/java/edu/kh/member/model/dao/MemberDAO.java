@@ -103,4 +103,30 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+
+	/** 3) 멤버 탈퇴
+	 * @param conn
+	 * @param memNo
+	 * @return
+	 */
+	public int withdrawal(Connection conn, int memNo) throws Exception{
+		
+		int withdrawal = 0;
+		
+		try {
+			String sql = prop.getProperty("withdrawal");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memNo);
+		
+			withdrawal = pstmt.executeUpdate();
+			
+		}finally {
+			
+			close(pstmt);
+		}
+		return withdrawal;
+	}
+
 }

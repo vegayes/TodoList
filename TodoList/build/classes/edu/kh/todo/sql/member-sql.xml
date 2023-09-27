@@ -16,6 +16,12 @@
 		AND MEMBER_ID = ?
 		AND MEMBER_PW = ?
 	</entry>
+	
+	<entry key = "withdrawal">
+	UPDATE "MEMBER" 
+	SET MEMBER_DEL_FL = 'Y'
+	WHERE MEMBER_NO = ?
+	</entry>
 
 
 

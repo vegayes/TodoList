@@ -1,0 +1,19 @@
+package edu.kh.member.controller;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/withdrawal")
+public class WithdrawalController extends HttpServlet {
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
